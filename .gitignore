@@ -1,0 +1,8 @@
+ck/
+runs/
+runs_before/
+logs/
+logs_/
+*.csv
+vis_output/
+logs_prev/
