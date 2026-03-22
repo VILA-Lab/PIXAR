@@ -294,7 +294,7 @@ deepspeed --include localhost:0 --master_port=12345 train_PIXAR.py \
   --vision_pretrained <path_to_sam_vit_h.pth> \
   --val_dataset <path_to_validation_set> \
   --batch_size 2 --epochs 10 --steps_per_epoch 1000 \
-  --lr 1e-4 --dice_loss_weight 1.0 --seg_prompt_mode fuse \
+  --lr 1e-4 --dice_loss_weight 1.0 --seg_prompt_mode seg_only \
   --precision bf16 --exp_name "pixar_experiment" --log_base_dir ./runs
 ```
 
@@ -326,7 +326,7 @@ python test_parallel.py \
   --version <merged_model> --dataset_dir <test_data> \
   --vision_pretrained <sam.pth> --gpus 0,1,2,3 \
   --output_dir ./evaluation/logs/my_exp \
-  --seg_prompt_mode fuse --precision bf16 --save_generated_text
+  --seg_prompt_mode seg_only --precision bf16 --save_generated_text
 
 # Text quality (CSS score, requires --save_generated_text above)
 cd evaluation/text_eval
@@ -340,7 +340,7 @@ python compute_css.py \
 ## 💬 Interactive Inference
 
 ```bash
-python chat.py --version <merged_model> --precision bf16 --seg_prompt_mode fuse
+python chat.py --version <merged_model> --precision bf16 --seg_prompt_mode seg_only
 ```
 
 We also provide a set of demo notebooks in the [`playground/`](playground/) directory that you can use to explore the model interactively.
