@@ -6,7 +6,7 @@
 ### A New Taxonomy, Benchmark, and Metrics for VLM Image Tampering
 
 <p>
-  <a href=""><img src="https://img.shields.io/badge/Paper-PDF-blue?style=for-the-badge&logo=adobeacrobatreader" alt="Paper"></a>
+  <a href="https://arxiv.org/pdf/2603.20193"><img src="https://img.shields.io/badge/Paper-PDF-blue?style=for-the-badge&logo=adobeacrobatreader" alt="Paper"></a>
   &nbsp;
   <a href="https://drive.google.com/drive/folders/1Zwhi403Ozy26cR1CW7EfuomFnE9qDmze?usp=drive_link"><img src="https://img.shields.io/badge/Dataset-Google%20Drive-yellow?style=for-the-badge&logo=googledrive" alt="Dataset"></a>
   &nbsp;
@@ -118,15 +118,15 @@ Built on LLaVA + LLaMA-2 with LoRA fine-tuning, integrated with SAM ViT-H for pi
 
 | Token | Role |
 |:---:|:---|
-| `[CLS]` | Hidden state → 3-way classification (real / tampered) via `FC_cls` |
+| `[CLS]` | Hidden state → 2-way classification (real / tampered) via `FC_cls` |
 | `[OBJ]` | Hidden state → multi-label object recognition (81 COCO classes) via `FC_obj` |
-| `[SEG]` | Hidden state fused with generated text → SAM prompt for pixel localization via `FC_seg` |
+| `[SEG]` | Hidden state → SAM prompt for pixel localization via `FC_seg` |
 
 ### Training Objective
 
 $$\mathcal{L}_\text{total} = \lambda_\text{sem}\,\mathcal{L}_\text{sem} + \lambda_\text{bce}\,\mathcal{L}_\text{bce} + \lambda_\text{dice}\,\mathcal{L}_\text{dice} + \lambda_\text{text}\,\mathcal{L}_\text{text} + \lambda_\text{cls}\,\mathcal{L}_\text{cls}$$
 
-Default weights: $\lambda_\text{sem}$ = 0.1, $\lambda_\text{cls}$ = 1.0, $\lambda_\text{bce}$ = 1.0, $\lambda_\text{dice}$ = 1.0, $\lambda_\text{text}$ = 3.0.
+Default weights: $\lambda_\text{sem}$ = 0.5, $\lambda_\text{cls}$ = 1.0, $\lambda_\text{bce}$ = 1.0, $\lambda_\text{dice}$ = 1.0, $\lambda_\text{text}$ = 3.0.
 
 ### Segmentation Prompt Modes
 
