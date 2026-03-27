@@ -352,5 +352,10 @@ We also provide a set of demo notebooks in the [`playground/`](playground/) dire
 If you find this work useful, please cite:
 
 ```bibtex
-
+@article{shang2026masks,
+  title={From Masks to Pixels and Meaning: A New Taxonomy, Benchmark, and Metrics for VLM Image Tampering},
+  author={Shang, Xinyi and Tang, Yi and Cui, Jiacheng and Elhagry, Ahmed and Khatib, Salwa K Al and Bsharat, Sondos Mahmoud and Liu, Jiacheng and Zhao, Xiaohan and Xue, Jing-Hao and Li, Hao and others},
+  journal={arXiv preprint arXiv:2603.20193},
+  year={2026}
+}
 ```
